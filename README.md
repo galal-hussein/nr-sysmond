@@ -1,4 +1,4 @@
-newrelic-sysmond
+nr-sysmond
 =========
 
 The role will install newrelic-sysmond to monitor RHEL and Debian based systems.
