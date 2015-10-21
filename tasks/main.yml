@@ -1,0 +1,12 @@
+---
+- name: Run The Debian Version
+  include: debian.yml
+  when: ansible_os_family == 'Debian'
+
+- name: Run The Redhat Version
+  include: redhat.yml
+  when: ansible_os_family == 'RedHat'
+
+- name: Add the License key
+  command: creates=/var/run/newrelic_key_added.tmp nrsysmond-config --set license_key={{ newrelic_license_key }}
+  notify: Restart nrsysmond
